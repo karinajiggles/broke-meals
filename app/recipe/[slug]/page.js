@@ -26,6 +26,8 @@ export default async function RecipePage({ params }) {
 
       <h1>{recipe.title}</h1>
 
+      {recipe.description && <p className="recipe-description">{recipe.description}</p>}
+
       <div className="receipt">
         <div className="receipt-title">TOTAL COST</div>
         <ul>
