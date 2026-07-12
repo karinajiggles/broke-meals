@@ -28,7 +28,12 @@ export default function HomePage() {
                 style={recipe.image ? { backgroundImage: `url(${recipe.image})` } : undefined}
               />
               <div className="card-body">
-                <h2>{recipe.title}</h2>
+                <div>
+                  <h2>{recipe.title}</h2>
+                  {recipe.description && (
+                    <p className="card-description">{recipe.description}</p>
+                  )}
+                </div>
                 <span className="price-tag">${recipe.total.toFixed(2)}</span>
               </div>
             </Link>
