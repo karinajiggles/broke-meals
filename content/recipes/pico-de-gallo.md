@@ -7,6 +7,7 @@
 # 5. Save, commit, and push — the site rebuilds itself automatically.
 
 title: "Pico de Gallo"
+description: "Pico de gallo is a refreshing, tomato based salsa, often served as an accompaniment to chips or tacos. The freshness of the salsa, along with the acidity from the lime and mild spice from the jalapeños, brings a little bit of brightness to many bold, rich, and savoury dishes within Mexican cuisine. From tacos to burrito bowls, pico de gallo is an ultimate go-to salsa, especially for the non-spice individuals and veggie lovers."
 image: "/images/your-photo.jpg"
 servings: 8-12
 ingredients:

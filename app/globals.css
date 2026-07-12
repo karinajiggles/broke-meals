@@ -305,3 +305,19 @@ h3 {
   margin: 0.75rem 0 1.25rem;
   border: 1px solid var(--line);
 }
+
+.receipt-group {
+  margin-bottom: 0.5rem;
+}
+
+.receipt-group-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tomato);
+  margin: 0.9rem 0 0.35rem;
+}
+
+.receipt-group:first-of-type .receipt-group-label {
+  margin-top: 0;
+}

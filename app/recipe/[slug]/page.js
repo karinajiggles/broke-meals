@@ -12,7 +12,8 @@ export async function generateMetadata({ params }) {
 
 export default async function RecipePage({ params }) {
   const recipe = await getRecipeBySlug(params.slug);
-  const ingredients = recipe.ingredients || [];
+  const hasGroups = Array.isArray(recipe.ingredient_groups);
+  const flatIngredients = recipe.ingredients || [];
 
   return (
     <article className="recipe">
@@ -30,14 +31,32 @@ export default async function RecipePage({ params }) {
 
       <div className="receipt">
         <div className="receipt-title">TOTAL COST</div>
-        <ul>
-          {ingredients.map((ingredient, i) => (
-            <li key={i}>
-              <span>{ingredient.name}</span>
-              <span>${Number(ingredient.price).toFixed(2)}</span>
-            </li>
-          ))}
-        </ul>
+
+        {hasGroups ? (
+          recipe.ingredient_groups.map((group, gi) => (
+            <div className="receipt-group" key={gi}>
+              <div className="receipt-group-label">{group.group}</div>
+              <ul>
+                {(group.items || []).map((ingredient, i) => (
+                  <li key={i}>
+                    <span>{ingredient.name}</span>
+                    <span>${Number(ingredient.price).toFixed(2)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <ul>
+            {flatIngredients.map((ingredient, i) => (
+              <li key={i}>
+                <span>{ingredient.name}</span>
+                <span>${Number(ingredient.price).toFixed(2)}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
         <div className="receipt-total">
           <span>Total</span>
           <span>${recipe.total.toFixed(2)}</span>
