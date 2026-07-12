@@ -1,0 +1,281 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --paper: #eef0e4;       /* pantry-sage page background */
+  --card: #fbfbf6;        /* slightly lifted card surface */
+  --ink: #212b26;         /* deep charcoal-green, body text */
+  --ink-soft: #5b6560;    /* muted secondary text */
+  --line: #ccd0bd;        /* hairline borders */
+  --mustard: #dd9c1f;     /* price-tag accent */
+  --mustard-ink: #4a3505; /* text sitting on mustard */
+  --tomato: #bd4423;      /* stamp / link accent */
+
+  --radius: 3px;
+  --max-width: 960px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--tomato);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ---------- Hero / header ---------- */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tomato);
+  margin: 0 0 0.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-style: italic;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  max-width: 32rem;
+  margin: 1rem auto 0;
+  font-size: 1.05rem;
+}
+
+/* ---------- Recipe grid ---------- */
+.grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -12px rgba(33, 43, 38, 0.35);
+}
+
+.card-image {
+  aspect-ratio: 4 / 3;
+  background-color: var(--line);
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card-body h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.price-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono), monospace;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: var(--mustard);
+  color: var(--mustard-ink);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.empty-state {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* ---------- Recipe page ---------- */
+.recipe {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.back-link:hover {
+  color: var(--tomato);
+}
+
+.recipe h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1.75rem;
+  background: var(--line);
+}
+
+/* The receipt: the site's signature element */
+.receipt {
+  background: var(--card);
+  border: 1px dashed var(--ink);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 1.25rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-mono), monospace;
+}
+
+.receipt-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  margin-bottom: 0.85rem;
+}
+
+.receipt ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.receipt li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.receipt li span:first-child {
+  color: var(--ink);
+}
+
+.receipt li span:last-child {
+  color: var(--ink-soft);
+}
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--ink);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.receipt-total span:last-child {
+  background: var(--mustard);
+  color: var(--mustard-ink);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.receipt-per-serving {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.instructions h2 {
+  font-size: 1.3rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.instructions p {
+  margin: 0 0 1rem;
+}
+
+.instructions ol,
+.instructions ul {
+  padding-left: 1.25rem;
+}
+
+.instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1.25rem 2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .card-body {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
