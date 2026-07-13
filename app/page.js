@@ -53,6 +53,11 @@ export default async function HomePage() {
                   {"★".repeat(review.stars)}
                   <span className="review-stars-empty">{"★".repeat(5 - review.stars)}</span>
                 </div>
+                {review.recipeSlug && (
+                  <Link href={`/recipe/${review.recipeSlug}`} className="review-recipe-label">
+                    {review.recipeTitle}
+                  </Link>
+                )}
                 <div
                   className="review-text"
                   dangerouslySetInnerHTML={{ __html: review.contentHtml }}
