@@ -17,6 +17,20 @@ ingredients:
     price: 1.00
   - name: "1 cup ice cubes"
     price: 0.00
+steps:
+  - text: "Thoroughly wash the limes, as the skins will be blended. Slice off the ends of each lime, then cut each lime into 6-8 equally sized wedges."
+    items: ["4 limes"]
+  - text: "Peel and deseed the mango, enough for around one cup. Add more if desired."
+    items: ["1 cup mango"]
+  - text: "Toss the lime wedges, sugar, cold water, mango, and condensed milk into a high-speed blender."
+    items: ["lime", "sugar", "water", "mango", "condensed milk"]
+  - text: "Pulse for a maximum of around 10-15 seconds. Pulsing is only to extract the essential oils and flavours of the limes, not to create a paste."
+    items: ["blender"]
+  - text: "Immediately strain the cloudy, pale green lemonade into a pitcher through a fine mesh sieve, using the back of a spoon to extract any remaining lemonade from the pulp."
+    items: ["strainer"]
+  - text: "Fill two glasses with ice and lime slices for garnish."
+    items: ["ice"]
+  - text: "Pour the mango Brazilian lemonade over the ice, serve, and enjoy!"
 ---
 
 ## Instructions
@@ -28,7 +42,6 @@ ingredients:
 5. Immediately strain the cloudy, pale green lemonade into a pitcher through a fine mesh sieve, using the back of a spoon to extract any remaining lemonade from the pulp.
 6. Fill two glasses with ice and lime slices for garnish. 
 7. Pour the mango Brazilian lemonade over the ice, serve, and enjoy!
-
 
 ## Notes
 

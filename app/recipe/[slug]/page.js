@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllSlugs, getRecipeBySlug } from "../../../lib/recipes";
 import { getReviewsForRecipe } from "../../../lib/reviews";
+import CookMode from "./CookMode";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -16,6 +17,7 @@ export default async function RecipePage({ params }) {
   const reviews = await getReviewsForRecipe(params.slug);
   const hasGroups = Array.isArray(recipe.ingredient_groups);
   const flatIngredients = recipe.ingredients || [];
+  const hasSteps = Array.isArray(recipe.steps) && recipe.steps.length > 0;
 
   return (
     <article className="recipe">
@@ -70,9 +72,11 @@ export default async function RecipePage({ params }) {
         )}
       </div>
 
+      {hasSteps && <CookMode steps={recipe.steps} />}
+
       <div
-        className="instructions"
-        dangerouslySetInnerHTML={{ __html: recipe.contentHtml }}
+         className="instructions"
+          dangerouslySetInnerHTML={{ __html: recipe.contentHtml }}
       />
 
       {reviews.length > 0 && (

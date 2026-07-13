@@ -287,6 +287,20 @@ h3 {
   padding: 1.25rem 1.4rem;
 }
 
+.review-recipe-label {
+  display: inline-block;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tomato);
+  margin-bottom: 0.5rem;
+}
+
+.review-recipe-label:hover {
+  text-decoration: underline;
+}
+
 .review-stars {
   color: var(--mustard);
   letter-spacing: 0.1em;
@@ -322,6 +336,174 @@ h3 {
   font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   color: var(--ink-soft);
+}
+
+.recipe-reviews {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.recipe-reviews-heading {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Cook Mode ---------- */
+.cook-mode-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin: -0.5rem 0 2rem;
+}
+
+.cook-mode-toggle {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mustard-ink);
+  background: var(--mustard);
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px -6px rgba(74, 53, 5, 0.45);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.cook-mode-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(74, 53, 5, 0.55);
+}
+
+.cook-mode-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 26, 22, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.cook-mode-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cook-mode-progress {
+  position: absolute;
+  top: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+.cook-mode-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 2.5rem 2.5rem 2rem;
+  width: min(90vw, 640px);
+  max-height: 78vh;
+  overflow-y: auto;
+  cursor: default;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+}
+
+.cook-mode-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cook-mode-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.cook-mode-item-icon {
+  font-size: 1rem;
+}
+
+.cook-mode-text {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.cook-mode-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+}
+
+.cook-mode-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(90vw, 640px);
+  margin-top: 1.5rem;
+  cursor: default;
+}
+
+.cook-mode-nav-button {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.cook-mode-nav-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.cook-mode-hint {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .cook-mode-hint {
+    display: block;
+  }
 }
 
 /* ---------- Responsive ---------- */
