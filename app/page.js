@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { getAllRecipes } from "../lib/recipes";
+import { getAllReviews } from "../lib/reviews";
 import { siteConfig } from "../lib/config";
 
-export default function HomePage() {
+export default async function HomePage() {
   const recipes = getAllRecipes();
+  const reviews = await getAllReviews();
 
   return (
     <div>
@@ -39,6 +41,34 @@ export default function HomePage() {
             </Link>
           ))}
         </main>
+      )}
+
+      {reviews.length > 0 && (
+        <section className="reviews-section">
+          <h2 className="reviews-heading">What people are saying</h2>
+          <div className="reviews-grid">
+            {reviews.map((review) => (
+              <div className="review-card" key={review.slug}>
+                <div className="review-stars" aria-label={`${review.stars} out of 5 stars`}>
+                  {"★".repeat(review.stars)}
+                  <span className="review-stars-empty">{"★".repeat(5 - review.stars)}</span>
+                </div>
+                <div
+                  className="review-text"
+                  dangerouslySetInnerHTML={{ __html: review.contentHtml }}
+                />
+                {review.photos.length > 0 && (
+                  <div className="review-photos">
+                    {review.photos.map((photo, i) => (
+                      <img src={photo} alt={`Photo from ${review.name}'s review`} key={i} />
+                    ))}
+                  </div>
+                )}
+                <div className="review-name">— {review.name}</div>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
